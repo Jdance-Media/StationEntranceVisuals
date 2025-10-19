@@ -20,6 +20,7 @@ public record struct LineDescriptor(
         return Mod.m_Setting.LineDisplayNameDropdown switch
         {
             Settings.LineDisplayNameOptions.Custom => SmallName,
+            Settings.LineDisplayNameOptions.CustomSuffix => SmallName,
             Settings.LineDisplayNameOptions.WriteEverywhere => Acronym,
             Settings.LineDisplayNameOptions.Generated => Number.ToString(),
             _ => SmallName
@@ -31,6 +32,7 @@ public record struct LineDescriptor(
         return Mod.m_Setting.LineDisplayNameDropdown switch
         {
             Settings.LineDisplayNameOptions.Custom => SmallName,
+            Settings.LineDisplayNameOptions.CustomSuffix => SmallName,
             Settings.LineDisplayNameOptions.WriteEverywhere => Acronym,
             Settings.LineDisplayNameOptions.Generated => Number.ToString(),
             _ => SmallName
