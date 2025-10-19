@@ -95,7 +95,10 @@ public static class LinesUtils
 
     private static string GetSmallLineName(Owner owner, RouteNumber routeNumber)
     {
-        var lineName = _nameSystem.GetRenderedLabelName(owner.m_Owner).Split(' ').LastOrDefault();
+        if (Mod.m_Setting.LineDisplayNameDropdown == Settings.LineDisplayNameOptions.CustomSuffix)
+            var lineName = _nameSystem.GetRenderedLabelName(owner.m_Owner).Split(' ').FirstOrDefault();
+        else
+            var lineName = _nameSystem.GetRenderedLabelName(owner.m_Owner).Split(' ').LastOrDefault();
         return lineName is { Length: >= 1 and <= 3 } ? lineName : routeNumber.m_Number.ToString();
     }
 
