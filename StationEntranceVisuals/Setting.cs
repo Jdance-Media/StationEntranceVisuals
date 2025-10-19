@@ -65,14 +65,16 @@ public class Settings(IMod mod) : ModSetting(mod)
         Generic,
         SaoPaulo,
         NewYork,
-        London,
+        London
     }
-    
+
+    // Cannot use CustomSuffix here for the original because we need to maintain compat with the past settings.
     public enum LineDisplayNameOptions
     {
         Custom,
+        CustomPrefix,
         WriteEverywhere,
-        Generated,
+        Generated
     }
 }
 
@@ -123,8 +125,10 @@ public class LocaleEn(Settings setting) : IDictionarySource
             
             { setting.GetOptionLabelLocaleID(nameof(Settings.LineDisplayNameDropdown)), "Line Display Name" },
             { setting.GetOptionDescLocaleID(nameof(Settings.LineDisplayNameDropdown)), $"Allows you to change what should be displayed as the line name" },
-            
-            { setting.GetEnumValueLocaleID(Settings.LineDisplayNameOptions.Custom), "Custom (Based on the name of the line)" },
+
+            // Again, if implemented, it will be kept as 'Custom' instead of 'CustomSuffix' so past settings function properly.
+            { setting.GetEnumValueLocaleID(Settings.LineDisplayNameOptions.Custom), "Custom (Suffix - Based on name of line)" },
+            { setting.GetEnumValueLocaleID(Settings.LineDisplayNameOptions.CustomPrefix), "Custom (Prefix - Based on name of line)" },
             { setting.GetEnumValueLocaleID(Settings.LineDisplayNameOptions.WriteEverywhere), "Write EveryWhere (Based on the Write Everywhere name of the line)" },
             { setting.GetEnumValueLocaleID(Settings.LineDisplayNameOptions.Generated), "Generated (Based on the generated number of the line)" },
         };
