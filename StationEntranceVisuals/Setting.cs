@@ -72,9 +72,9 @@ public class Settings(IMod mod) : ModSetting(mod)
     public enum LineDisplayNameOptions
     {
         Custom,
-        CustomPrefix,
         WriteEverywhere,
-        Generated
+        Generated,
+        CustomPrefix
     }
 }
 
